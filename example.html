@@ -9,22 +9,25 @@
 <body ng-controller="appController">
 	<div class="center-block text-center">
 		<div class="row">
-			<div class="col-md-12">
-				<h1>AngularJS-Filters</h1>
-				<h3>{{ name }} (startsWith) => {{ name | startsWith:'/' }}</h3>
-				<h3>{{ name }} (endsWith) => {{ name | endsWith:'/' }}</h3>
-				<h3>{{ name }} (length) => {{ name | length }}</h3>
-				<h3>{{ name }} (wordsLength) => {{ name | wordsLength }}</h3>
-				<h3>{{ name }} (limit:10:'!!!') => {{ name | limit:10:'!!!' }}</h3>				
-				<h3>{{ name }} (limit) => {{ name | limit }}</h3>				
-				<h3>{{ name }} (words:1:'......') => {{ name | words:1:'......' }}</h3>				
-				<h3>{{ name }} (words) => {{ name | words }}</h3>				
-				<h3>{{ name }} (title) => {{ name | title }}</h3>				
-				<h3>{{ name }} (slug) => {{ name | slug }}</h3>				
-				<h3>{{ name }} (slug:'_') => {{ name | slug:'_' }}</h3>				
-				<h3>{{ name }} (snake) => {{ name | snake }}</h3>				
-				<h3>{{ name }} (camel) => {{ name | camel }}</h3>				
-				<h3>{{ name }} (studly) => {{ name | studly }}</h3>				
+			<div class="col-md-12 well">
+				<h1><span class="label label-primary">AngularJS-Filters</span></h1><hr>
+				<h2>Basic Use</h2><hr>
+				<h3>{{ name }} (filter: startsWith) => {{ name | startsWith:'/' }}</h3>
+				<h3>{{ name }} (filter: endsWith) => {{ name | endsWith:'/' }}</h3>
+				<h3>{{ name }} (filter: length) => {{ name | length }}</h3>
+				<h3>{{ name }} (filter: wordsLength) => {{ name | wordsLength }}</h3>
+				<h3>{{ name }} (filter: limit:10:'!!!') => {{ name | limit:10:'!!!' }}</h3>				
+				<h3>{{ name }} (filter: limit) => {{ name | limit }}</h3>				
+				<h3>{{ name }} (filter: words:1:'......') => {{ name | words:1:'......' }}</h3>				
+				<h3>{{ name }} (filter: words) => {{ name | words }}</h3>				
+				<h3>{{ name }} (filter: title) => {{ name | title }}</h3>				
+				<h3>{{ name }} (filter: slug) => {{ name | slug }}</h3>				
+				<h3>{{ name }} (filter: slug:'_') => {{ name | slug:'_' }}</h3>				
+				<h3>{{ name }} (filter: snake) => {{ name | snake }}</h3>				
+				<h3>{{ name }} (filter: camel) => {{ name | camel }}</h3>				
+				<h3>{{ name }} (filter: studly) => {{ name | studly }}</h3>
+				<h2>Advanced Use</h2><hr>
+				<h3>{{ name }} (filters: title, wordsLength) => {{ name | title | words }}</h3>
 			</div>
 		</div>
 	</div>
