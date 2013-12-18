@@ -11,24 +11,28 @@ Checks if a string starts with the given parameter. If not concatenates that par
 {{ str | startsWith:'/' }}
 
 **endsWith**
+------------
 
 Checks if a string ends with the given parameter. If not concatenates that parameter to the very end of the string and returns it else returns the string itself.
 
 {{ str | endsWith:'/' }}
 
 **length**
+----------
 
 Returns the length of the given string.
 
 {{ str | length }}
 
 **wordsLength**
+---------------
 
 Returns the number of words in a given string.
 
 {{ str | wordsLength }}
 
 **limit**
+---------
 
 Returns a specific number of chars for a given string and concatenates an end string. First parameter is the length of the string with default value equal to 100 chars and second parameter is the end string to be concatenated with default value equal to '...'. 
 
@@ -36,6 +40,7 @@ Returns a specific number of chars for a given string and concatenates an end st
 {{ str | limit:10:'!!!' }}
 
 **words**
+---------
 
 Returns a specific number of words for a given string and concatenates an end string. First parameter is the number of words with default value equal to 100 words and second parameter is the end string to be concatenated with default value equal to '...'. 
 
@@ -43,12 +48,14 @@ Returns a specific number of words for a given string and concatenates an end st
 {{ str | words:10:'!!!' }}
 
 **title**
+---------
 
 Returns a string by transforming every word of it to lowercase except for its first letter which is transformed to uppercase. 
 
 {{ str | title }}
 
 **slug**
+--------
 
 Returns a string by transforming it to lowercase and by replacing space between words with available parameter. Parameter's default value is equal to '-'. 
 
@@ -56,18 +63,21 @@ Returns a string by transforming it to lowercase and by replacing space between 
 {{ str | slug:'_' }}
 
 **snake**
+---------
 
 Returns a string by transforming it to snakecase. 
 
 {{ str | snake }}
 
 **camel**
+---------
 
 Returns a string by transforming it to camelcase. 
 
 {{ str | camel }}
 
 **studly**
+----------
 
 Returns a string by transforming it to studlycase. So every vowel is transformed to lowercase and every consonant to uppercase.
 
