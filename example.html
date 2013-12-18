@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS Filters</title>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+</head>
+<body ng-controller="appController">
+	<div class="center-block text-center">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>AngularJS-Filters</h1>
+				<h3>{{ name }} (startsWith) => {{ name | startsWith:'/' }}</h3>
+				<h3>{{ name }} (endsWith) => {{ name | endsWith:'/' }}</h3>
+				<h3>{{ name }} (length) => {{ name | length }}</h3>
+				<h3>{{ name }} (wordsLength) => {{ name | wordsLength }}</h3>
+				<h3>{{ name }} (limit:10:'!!!') => {{ name | limit:10:'!!!' }}</h3>				
+				<h3>{{ name }} (limit) => {{ name | limit }}</h3>				
+				<h3>{{ name }} (words:1:'......') => {{ name | words:1:'......' }}</h3>				
+				<h3>{{ name }} (words) => {{ name | words }}</h3>				
+				<h3>{{ name }} (title) => {{ name | title }}</h3>				
+				<h3>{{ name }} (slug) => {{ name | slug }}</h3>				
+				<h3>{{ name }} (slug:'_') => {{ name | slug:'_' }}</h3>				
+				<h3>{{ name }} (snake) => {{ name | snake }}</h3>				
+				<h3>{{ name }} (camel) => {{ name | camel }}</h3>				
+				<h3>{{ name }} (studly) => {{ name | studly }}</h3>				
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	<script>
+		var myApp = angular.module('myApp', []);
+
+		myApp
+			.controller('appController', function($scope){
+				$scope.name = ' marIOS fakiolas';
+			})
+			.filter('startsWith', function(){
+				return function(input, attr){
+					var input = input.trim();
+					return (input.slice(0, 1) == attr) ? input : attr + input;
+				}
+			})			
+			.filter('endsWith', function(){
+				return function(input, attr){
+					var input = input.trim();
+					return (input.slice(-1) == attr) ? input : input + attr;
+				}
+			})
+			.filter('length', function(){
+				return function(input){
+					return input.trim().length;
+				}
+			})
+			.filter('wordsLength', function(){
+				return function(input){
+					var words = input.trim().split(" ");
+					return words.length;
+				}
+			})
+			.filter('limit', function(){
+				return function(input, attr1, attr2){
+					var attr1 = (attr1 == undefined) ? 100 : attr1,
+						attr2 = (attr2 == undefined) ? '...' : attr2;
+					return input.trim().slice(0, attr1) + attr2;
+				}
+			})
+			.filter('words', function(){
+				return function(input, attr1, attr2){
+					var words = input.trim().split(" "),
+						attr1 = (attr1 == undefined) ? 100 : attr1,
+						attr2 = (attr2 == undefined) ? '...' : attr2,						
+						limit = (words.length < attr1) ? words.length : attr1,
+						output = "", blank;
+					for(i=0; i<limit; i++){
+						blank = (i == 0) ? "" : " ";
+						output = output.concat(blank, words[i]);
+					}
+					return output + attr2;
+				}
+			})
+			.filter('title', function(){
+				return function(input){
+					var words = input.trim().split(" "),
+						output = "", newWord = "", blank, char;
+					for(i=0,lenWs=words.length; i<lenWs; i++){
+						word = words[i].toLowerCase();
+						for(k=0,lenW=word.length; k<lenW; k++){
+							char = (k == 0) ? word.charAt(k).toUpperCase() : word.charAt(k);
+							newWord = newWord.concat(char);
+						}
+						blank = (i == 0) ? "" : " ";
+						output = output.concat(blank, newWord);
+						newWord = "";
+					}
+					return output;
+				}
+			})		
+			.filter('slug', function(){
+				return function(input, attr){
+					var words = input.trim().split(" "),						
+						attr = (attr == undefined) ? '-' : attr,
+						output = "", separator;
+					for(i=0,lenWs=words.length; i<lenWs; i++){
+						word = words[i].toLowerCase();
+						separator = (i == 0) ? "" : attr;
+						output = output.concat(separator, word);
+					}
+					return output;
+				}
+			})
+			.filter('snake', function(){
+				return function(input){
+					var words = input.trim().split(" "),
+						output = "", separator;
+					for(i=0,lenWs=words.length; i<lenWs; i++){
+						word = words[i].toLowerCase();
+						separator = (i == 0) ? "" : "_";
+						output = output.concat(separator, word);
+					}
+					return output;
+				}
+			})
+			.filter('camel', function(){
+				return function(input){
+					var words = input.trim().split(" "),
+						output = "", newWord = "", char;
+					for(i=0,lenWs=words.length; i<lenWs; i++){
+						word = words[i].toLowerCase();
+						if(i > 0){
+							for(k=0,lenW=word.length; k<lenW; k++){
+								char = (k == 0) ? word.charAt(k).toUpperCase() : word.charAt(k);
+								newWord = newWord.concat(char);
+							}
+						} else {
+							newWord = word;
+						}
+
+						output = output.concat(newWord);
+						newWord = "";
+					}
+					return output;
+				}
+			})
+			.filter('studly', function(){
+				return function(input){
+					var words = input.trim().split(" "),
+						output = "", newWord = "", regex = /^[aeiou]$/i, char;
+					for(i=0,lenWs=words.length; i<lenWs; i++){
+						word = words[i].toLowerCase();
+						for(k=0,lenW=word.length; k<lenW; k++){
+							char = regex.test(word.charAt(k)) ? word.charAt(k) : word.charAt(k).toUpperCase();
+							newWord = newWord.concat(char);
+						}
+						output = output.concat(newWord);
+						newWord = "";
+					}
+					return output;
+				}
+			});
+	</script>
+</body>
+</html>
