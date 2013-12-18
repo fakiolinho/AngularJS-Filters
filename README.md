@@ -4,6 +4,7 @@ AngularJS-Filters
 Some extra filters for strings using AngularJS.
 
 **startsWith**
+--------------
 
 Checks if a string starts with the given parameter. If not concatenates that parameter to the very start of the string and returns it else returns the string itself.
 
@@ -31,14 +32,14 @@ Returns the number of words in a given string.
 
 Returns a specific number of chars for a given string and concatenates an end string. First parameter is the length of the string with default value equal to 100 chars and second parameter is the end string to be concatenated with default value equal to '...'. 
 
-{{ str | limit }}
+{{ str | limit }}   
 {{ str | limit:10:'!!!' }}
 
 **words**
 
 Returns a specific number of words for a given string and concatenates an end string. First parameter is the number of words with default value equal to 100 words and second parameter is the end string to be concatenated with default value equal to '...'. 
 
-{{ str | words }}
+{{ str | words }}   
 {{ str | words:10:'!!!' }}
 
 **title**
@@ -51,7 +52,7 @@ Returns a string by transforming every word of it to lowercase except for its fi
 
 Returns a string by transforming it to lowercase and by replacing space between words with available parameter. Parameter's default value is equal to '-'. 
 
-{{ str | slug }}
+{{ str | slug }}   
 {{ str | slug:'_' }}
 
 **snake**
