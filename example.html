@@ -7,36 +7,39 @@
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 </head>
 <body ng-controller="appController">
-	<div class="center-block text-center">
-		<div class="row">
-			<div class="col-md-12 well">
-				<h1><span class="label label-primary">AngularJS-Filters</span></h1><hr>
-				<h2><span class="label label-success">String Filters</span></h2><hr>
-				<h3>{{ name }} (filter: startsWith:'/') => {{ name | startsWith:'/' }}</h3>
-				<h3>{{ name }} (filter: endsWith:'/') => {{ name | endsWith:'/' }}</h3>
-				<h3>{{ name }} (filter: length) => {{ name | length }}</h3>
-				<h3>{{ name }} (filter: wordsLength) => {{ name | wordsLength }}</h3>
-				<h3>{{ name }} (filter: limit:10:'!!!') => {{ name | limit:10:'!!!' }}</h3>			
-				<h3>{{ name }} (filter: limit) => {{ name | limit }}</h3>				
-				<h3>{{ name }} (filter: words:1:'......') => {{ name | words:1:'......' }}</h3>		
-				<h3>{{ name }} (filter: words) => {{ name | words }}</h3>
-				<h3>{{ 'random' }} (filter: random) => {{ 'random' | random }}</h3>
-				<h3>{{ 'random' }} (filter: random:'alpha') => {{ 'random' | random:'alpha' }}</h3>	
-				<h3>{{ 'random' }} (filter: random:'numeric':5) => {{ 'random' | random:'numeric':5 }}</h3>			
-				<h3>{{ 'random' }} (filter: random:'alphanumeric':10) => {{ 'random' | random:'alphanumeric':10 }}</h3>	
-				<h3>{{ name }} (filter: title) => {{ name | title }}</h3>
-				<h3>{{ name }} (filters: title, wordsLength) => {{ name | title | words }}</h3>			
-				<h3>{{ name }} (filter: slug) => {{ name | slug }}</h3>				
-				<h3>{{ name }} (filter: slug:'_') => {{ name | slug:'_' }}</h3>				
-				<h3>{{ name }} (filter: snake) => {{ name | snake }}</h3>				
-				<h3>{{ name }} (filter: camel) => {{ name | camel }}</h3>	
-				<h3>{{ name }} (filter: studly) => {{ name | studly }}</h3>
-	
-				<h2><span class="label label-info">Date Filters</span></h2><hr>
-				<h3>{{ date }} (filter: dateStamp) => {{ date | dateStamp }}</h3>
-				<h3>{{ date }} (filter:dateStamp, date:"dd/MM/yyyy") => {{ date |dateStamp | date:"dd/MM/yyyy" }}</h3>	
-				<h3>{{ date }} (filter: dateStamp, dateAfter:'3d', date:"dd/MM/yyyy") => {{ date | dateStamp | dateAfter:'3d' | date:'dd/MM/yyyy' }}</h3>				
-				<h3>{{ '1387833121000' }} (filter: dateAfter:'9d', date:'dd/MM/yyyy') => {{ '1387833121000' | dateAfter:'9d' | date:'dd/MM/yyyy' }}</h3>				
+	<div class="container">
+		<div class="center-block text-center">
+			<div class="row">
+				<div class="col-md-6">
+					<h1><span class="label label-primary">AngularJS-Filters</span></h1><hr>
+					<h2><span class="label label-success">String Filters</span></h2><hr>
+					<h3>{{ name }} =><br>(filter: startsWith:'/') =><br> {{ name | startsWith:'/' }}</h3>
+					<h3>{{ name }} =><br>(filter: endsWith:'/') =><br> {{ name | endsWith:'/' }}</h3>
+					<h3>{{ name }} =><br>(filter: length) =><br> {{ name | length }}</h3>
+					<h3>{{ name }} =><br>(filter: wordsLength) =><br> {{ name | wordsLength }}</h3>
+					<h3>{{ name }} =><br>(filter: limit:10:'!!!') =><br> {{ name | limit:10:'!!!' }}</h3>			
+					<h3>{{ name }} =><br>(filter: limit) =><br> {{ name | limit }}</h3>				
+					<h3>{{ name }} =><br>(filter: words:1:'......') =><br> {{ name | words:1:'......' }}</h3>		
+					<h3>{{ name }} =><br>(filter: words) =><br> {{ name | words }}</h3>
+					<h3>{{ 'random' }} =><br>(filter: random) =><br> {{ 'random' | random }}</h3>
+					<h3>{{ 'random' }} =><br>(filter: random:'alpha') =><br> {{ 'random' | random:'alpha' }}</h3>	
+					<h3>{{ 'random' }} =><br>(filter: random:'numeric':5) =><br> {{ 'random' | random:'numeric':5 }}</h3>			
+					<h3>{{ 'random' }} =><br>(filter: random:'alphanumeric':10) =><br> {{ 'random' | random:'alphanumeric':10 }}</h3>	
+					<h3>{{ name }} =><br>(filter: title) =><br> {{ name | title }}</h3>
+					<h3>{{ name }} =><br>(filters: title, wordsLength) =><br> {{ name | title | words }}</h3>			
+					<h3>{{ name }} =><br>(filter: slug) =><br> {{ name | slug }}</h3>				
+					<h3>{{ name }} =><br>(filter: slug:'_') =><br> {{ name | slug:'_' }}</h3>				
+					<h3>{{ name }} =><br>(filter: snake) =><br> {{ name | snake }}</h3>				
+					<h3>{{ name }} =><br>(filter: camel) =><br> {{ name | camel }}</h3>	
+					<h3>{{ name }} =><br>(filter: studly) =><br> {{ name | studly }}</h3>
+				</div>
+				<div class="col-md-6">	
+					<h2><span class="label label-info">Date Filters</span></h2><hr>
+					<h3>{{ date }} =><br>(filter: dateStamp) =><br> {{ date | dateStamp }}</h3>
+					<h3>{{ date }} =><br>(filter:dateStamp, date:"dd/MM/yyyy") =><br> {{ date |dateStamp | date:"dd/MM/yyyy" }}</h3>	
+					<h3>{{ date }} =><br>(filter: dateStamp, dateAfter:'3d', date:"dd/MM/yyyy") =><br> {{ date | dateStamp | dateAfter:'3d' | date:'dd/MM/yyyy' }}</h3>				
+					<h3>{{ '1387833121000' }} =><br>(filter: dateAfter:'9d', date:'dd/MM/yyyy') =><br> {{ '1387833121000' | dateAfter:'9d' | date:'dd/MM/yyyy' }}</h3>				
+				</div>
 			</div>
 		</div>
 	</div>
