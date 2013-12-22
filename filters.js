@@ -45,6 +45,31 @@ myApp
 			return output + attr2;
 		}
 	})
+			.filter('random', function(){
+				return function(input, attr1, attr2){
+					var attr1 = (attr1 == undefined) ? 'alphanumeric' : attr1,
+					attr2 = (attr2 == undefined) ? 16 : attr2,
+					pool, output = '', char, len;
+					switch(attr1) {
+						case 'alpha':
+							pool = 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z'.split(',');
+							len = pool.length;
+							break;
+						case 'numeric':
+							pool = '0,1,2,3,4,5,6,7,8,9'.split(',');
+							len = pool.length;
+							break;
+						case 'alphanumeric':
+							pool = '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z'.split(',');
+							len = pool.length;
+					}
+					for(i=0; i<attr2; i++){
+						char = pool[Math.floor(Math.random()*len)];
+						output = output.concat(char);
+					}
+					return output;
+				}
+			})
 	.filter('title', function(){
 		return function(input){
 			var words = input.trim().split(" "),

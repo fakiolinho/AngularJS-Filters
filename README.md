@@ -47,6 +47,16 @@ Returns a specific number of words for a given string and concatenates an end st
 {{ str | words }}   
 {{ str | words:10:'!!!' }}
 
+**random**
+---------
+
+Returns a random alpha, numeric or alphanumeric string. Its default output is an alphanumeric string of 16 digits. You can pass as first parameter the type of string by selecting 'alpha' or 'numeric' or 'alphanumeric' and as second parameter the number of digits for the result string. This filter doesn't matter where it is applied so you can apply it to a string with no meaning or even a variable etc 
+
+{{ str | random }}   
+{{ str | random:'numeric':5 }}
+{{ str | random:'alphanumeric':32 }}
+{{ str | random:'alpha':10 }}
+
 **title**
 ---------
 
