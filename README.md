@@ -93,10 +93,17 @@ Returns a string by transforming it to studlycase. So every vowel is transformed
 
 {{ str | studly }}
 
-**dateISO**
-----------
+**dateStamp**
+-------------
 
-Useful if you try to apply Angular's date filter on datetime values like yyyy/MM/dd hh:mm:ss returned from a database. 
+Useful if you try to apply Angular's date filter on datetime values like yyyy-MM-dd hh:mm:ss returned from a database. It takes datetime format and turns it to timestamp.
 
-{{ date | dateISO }}  
-{{ date | dateISO | date:"dd/MM/yyyy" }}
+{{ date | dateStamp }}  
+{{ date | dateStamp | date:"dd/MM/yyyy" }}
+
+**dateAfter**
+-------------
+
+Useful if you want to add a time interval to a timestamp. It takes one parameter which is a string with the number and the type of interval like '1s' for 1 second, '10m' for 10 minutes, '30h' for 30 hours and '200d' for 200 days. As you understood you select s => seconds, m => minutes, h => hours and d => days. If you want to apply it to a datetime format apply previous filter too.
+
+{{ date | dateAfter:'10d' }}  

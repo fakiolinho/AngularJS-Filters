@@ -149,9 +149,29 @@ myApp
 			return output;
 		}
 	})
-	.filter('dateISO', function() {
+	.filter('dateStamp', function() {
 		return function(input) {
-			input = new Date(input).toISOString();
-			return input;
+		var input = input.split(/[- :]/); 
+			return new Date(input[0], input[1]-1, input[2], input[3], input[4], input[5]).getTime();
+		}
+	})
+	.filter('dateAfter', function() {
+		return function(input, attr) {
+			var type, n;
+			type = attr.slice(-1);
+			n = attr.slice(0, -1);
+			switch(type) {
+				case 's':
+					diff = n*1000;
+					break;
+				case 'm':
+					diff = n*60*1000;
+					break;
+				case 'h':
+					diff = n*60*60*1000;						
+				case 'd':
+					diff = n*24*60*60*1000;
+			}
+			return parseInt(input, 10) + diff;
 		}
 	});

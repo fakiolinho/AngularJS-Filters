@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-md-12 well">
 				<h1><span class="label label-primary">AngularJS-Filters</span></h1><hr>
-				<h2>Basic Use</h2><hr>
+				<h2><span class="label label-success">String Filters</span></h2><hr>
 				<h3>{{ name }} (filter: startsWith:'/') => {{ name | startsWith:'/' }}</h3>
 				<h3>{{ name }} (filter: endsWith:'/') => {{ name | endsWith:'/' }}</h3>
 				<h3>{{ name }} (filter: length) => {{ name | length }}</h3>
@@ -24,16 +24,19 @@
 				<h3>{{ 'random' }} (filter: random:'alpha') => {{ 'random' | random:'alpha' }}</h3>	
 				<h3>{{ 'random' }} (filter: random:'numeric':5) => {{ 'random' | random:'numeric':5 }}</h3>			
 				<h3>{{ 'random' }} (filter: random:'alphanumeric':10) => {{ 'random' | random:'alphanumeric':10 }}</h3>	
-				<h3>{{ name }} (filter: title) => {{ name | title }}</h3>				
+				<h3>{{ name }} (filter: title) => {{ name | title }}</h3>
+				<h3>{{ name }} (filters: title, wordsLength) => {{ name | title | words }}</h3>			
 				<h3>{{ name }} (filter: slug) => {{ name | slug }}</h3>				
 				<h3>{{ name }} (filter: slug:'_') => {{ name | slug:'_' }}</h3>				
 				<h3>{{ name }} (filter: snake) => {{ name | snake }}</h3>				
 				<h3>{{ name }} (filter: camel) => {{ name | camel }}</h3>	
 				<h3>{{ name }} (filter: studly) => {{ name | studly }}</h3>
-				<h3>{{ date }} (filter: dateISO) => {{ date | dateISO }}</h3>
-				<h2>Advanced Use</h2><hr>
-				<h3>{{ name }} (filters: title, wordsLength) => {{ name | title | words }}</h3>
-				<h3>{{ date }} (filter: dateISO, date:"dd/MM/yyyy") => {{ date | dateISO | date:"dd/MM/yyyy" }}</h3>
+	
+				<h2><span class="label label-info">Date Filters</span></h2><hr>
+				<h3>{{ date }} (filter: dateStamp) => {{ date | dateStamp }}</h3>
+				<h3>{{ date }} (filter:dateStamp, date:"dd/MM/yyyy") => {{ date |dateStamp | date:"dd/MM/yyyy" }}</h3>	
+				<h3>{{ date }} (filter: dateStamp, dateAfter:'3d', date:"dd/MM/yyyy") => {{ date | dateStamp | dateAfter:'3d' | date:'dd/MM/yyyy' }}</h3>				
+				<h3>{{ '1387833121000' }} (filter: dateAfter:'9d', date:'dd/MM/yyyy') => {{ '1387833121000' | dateAfter:'9d' | date:'dd/MM/yyyy' }}</h3>				
 			</div>
 		</div>
 	</div>
@@ -45,7 +48,7 @@
 		myApp
 			.controller('appController', function($scope){
 				$scope.name = ' marIOS fakiolas';
-				$scope.date = '2013/11/29 20:01:18';
+				$scope.date = '2013-11-29 20:01:18';
 			})
 			.filter('startsWith', function(){
 				return function(input, attr){
@@ -195,10 +198,30 @@
 					return output;
 				}
 			})
-			.filter('dateISO', function() {
+			.filter('dateStamp', function() {
 				return function(input) {
-					input = new Date(input).toISOString();
-					return input;
+				var input = input.split(/[- :]/); 
+					return new Date(input[0], input[1]-1, input[2], input[3], input[4], input[5]).getTime();
+				}
+			})
+			.filter('dateAfter', function() {
+				return function(input, attr) {
+					var type, n;
+					type = attr.slice(-1);
+					n = attr.slice(0, -1);
+					switch(type) {
+						case 's':
+							diff = n*1000;
+							break;
+						case 'm':
+							diff = n*60*1000;
+							break;
+						case 'h':
+							diff = n*60*60*1000;						
+						case 'd':
+							diff = n*24*60*60*1000;
+					}
+					return parseInt(input, 10) + diff;
 				}
 			});
 	</script>
