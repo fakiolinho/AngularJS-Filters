@@ -1,46 +1,48 @@
 # AngularJS-Filters #
 
-Some extra filters for strings and dates using AngularJS.
+Some extra filters for strings and dates using AngularJS. Happy coding :-)
 
-## startsWith ##
+## Strings Filters ##
+
+### startsWith ###
 
 Checks if a string starts with the given parameter. If not concatenates that parameter to the very start of the string and returns it else returns the string itself.
 
     {{ str | startsWith:'/' }}
 
-## endsWith ##
+### endsWith ###
 
 Checks if a string ends with the given parameter. If not concatenates that parameter to the very end of the string and returns it else returns the string itself.
 
     {{ str | endsWith:'/' }}
 
-## length ##
+### length ###
 
 Returns the length of the given string.
 
     {{ str | length }}
 
-## wordsLength ##
+### wordsLength ###
 
 Returns the number of words in a given string.
 
     {{ str | wordsLength }}
 
-## limit ##
+### limit ###
 
 Returns a specific number of chars for a given string and concatenates an end string. First parameter is the length of the string with default value equal to 100 chars and second parameter is the end string to be concatenated with default value equal to '...'. 
     
     {{ str | limit }}   
     {{ str | limit:10:'!!!' }}
 
-## words ##
+### words ###
 
 Returns a specific number of words for a given string and concatenates an end string. First parameter is the number of words with default value equal to 100 words and second parameter is the end string to be concatenated with default value equal to '...'. 
 
     {{ str | words }}   
     {{ str | words:10:'!!!' }}
 
-## random ##
+### random ###
 
 Returns a random alpha, numeric or alphanumeric string. Its default output is an alphanumeric string of 16 digits. You can pass as first parameter the type of string by selecting 'alpha' or 'numeric' or 'alphanumeric' and as second parameter the number of digits for the result string. This filter doesn't matter where it is applied so you can apply it to a string with no meaning or even a variable etc 
 
@@ -49,44 +51,46 @@ Returns a random alpha, numeric or alphanumeric string. Its default output is an
     {{ str | random:'alphanumeric':32 }}  
     {{ str | random:'alpha':10 }}
 
-## title ##
+### title ###
 
 Returns a string by transforming every word of it to lowercase except for its first letter which is transformed to uppercase. 
 
     {{ str | title }}
 
-## slug ##
+### slug ###
 
 Returns a string by transforming it to lowercase and by replacing space between words with available parameter. Parameter's default value is equal to '-'. 
 
     {{ str | slug }}   
     {{ str | slug:'_' }}
 
-## snake ##
+### snake ###
 
 Returns a string by transforming it to snakecase like snake_case. 
 
     {{ str | snake }}
 
-## camel ##
+### camel ###
 
 Returns a string by transforming it to camelcase like camelCase. 
 
     {{ str | camel }}
-## studly ##
+### studly ###
 
 Returns a string by transforming it to studlycase, so every vowel is transformed to lowercase and every consonant to uppercase like STuDLy.
 
     {{ str | studly }}
 
-## dateStamp ##
+## Date Filters ##
+
+### dateStamp ###
 
 Useful if you try to apply Angular's date filter on datetime values like yyyy-MM-dd hh:mm:ss returned from a database. It takes datetime format and turns it to timestamp and then angular's date filter can be applied without errors.
 
     {{ date | dateStamp }}  
     {{ date | dateStamp | date:"dd/MM/yyyy" }}
 
-## dateAfter ##
+### dateAfter ###
 
 Useful if you want to add a time interval to a timestamp. It takes one parameter which is a string with the value and the type of interval like '1s' for 1 second, '10m' for 10 minutes, '30h' for 30 hours and '200d' for 200 days. As you understood you select s => seconds, m => minutes, h => hours and d => days. If you want to apply it to a datetime format apply previous filter too.
 
