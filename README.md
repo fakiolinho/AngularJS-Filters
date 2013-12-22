@@ -1,5 +1,4 @@
 # AngularJS-Filters #
----------------------
 
 Some extra filters for strings and dates using AngularJS.
 
