@@ -1,7 +1,7 @@
 AngularJS-Filters
 =================
 
-Some extra filters for strings using AngularJS.
+Some extra filters for strings and dates using AngularJS.
 
 **startsWith**
 --------------
@@ -92,3 +92,11 @@ Returns a string by transforming it to camelcase.
 Returns a string by transforming it to studlycase. So every vowel is transformed to lowercase and every consonant to uppercase.
 
 {{ str | studly }}
+
+**dateISO**
+----------
+
+Useful if you try to apply Angular's date filter on datetime values like yyyy/MM/dd hh:mm:ss returned from a database. 
+
+{{ date | dateISO }}  
+{{ date | dateISO | date:"dd/MM/yyyy" }}

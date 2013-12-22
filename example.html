@@ -23,15 +23,17 @@
 				<h3>{{ 'random' }} (filter: random) => {{ 'random' | random }}</h3>
 				<h3>{{ 'random' }} (filter: random:'alpha') => {{ 'random' | random:'alpha' }}</h3>	
 				<h3>{{ 'random' }} (filter: random:'numeric':5) => {{ 'random' | random:'numeric':5 }}</h3>			
-				<h3>{{ 'random' }} (filter: random:'alphanumeric':10) => {{ 'random' | random:'alphanumeric':10 }}</h3>					
+				<h3>{{ 'random' }} (filter: random:'alphanumeric':10) => {{ 'random' | random:'alphanumeric':10 }}</h3>	
 				<h3>{{ name }} (filter: title) => {{ name | title }}</h3>				
 				<h3>{{ name }} (filter: slug) => {{ name | slug }}</h3>				
 				<h3>{{ name }} (filter: slug:'_') => {{ name | slug:'_' }}</h3>				
 				<h3>{{ name }} (filter: snake) => {{ name | snake }}</h3>				
 				<h3>{{ name }} (filter: camel) => {{ name | camel }}</h3>	
 				<h3>{{ name }} (filter: studly) => {{ name | studly }}</h3>
+				<h3>{{ date }} (filter: dateISO) => {{ date | dateISO }}</h3>
 				<h2>Advanced Use</h2><hr>
 				<h3>{{ name }} (filters: title, wordsLength) => {{ name | title | words }}</h3>
+				<h3>{{ date }} (filter: dateISO, date:"dd/MM/yyyy") => {{ date | dateISO | date:"dd/MM/yyyy" }}</h3>
 			</div>
 		</div>
 	</div>
@@ -43,6 +45,7 @@
 		myApp
 			.controller('appController', function($scope){
 				$scope.name = ' marIOS fakiolas';
+				$scope.date = '2013/11/29 20:01:18';
 			})
 			.filter('startsWith', function(){
 				return function(input, attr){
@@ -190,6 +193,12 @@
 						newWord = "";
 					}
 					return output;
+				}
+			})
+			.filter('dateISO', function() {
+				return function(input) {
+					input = new Date(input).toISOString();
+					return input;
 				}
 			});
 	</script>
