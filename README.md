@@ -64,30 +64,30 @@ Returns a string by transforming it to lowercase and by replacing space between 
 
 ## snake ##
 
-Returns a string by transforming it to snakecase. 
+Returns a string by transforming it to snakecase like snake_case. 
 
     {{ str | snake }}
 
 ## camel ##
 
-Returns a string by transforming it to camelcase. 
+Returns a string by transforming it to camelcase like camelCase. 
 
     {{ str | camel }}
 ## studly ##
 
-Returns a string by transforming it to studlycase. So every vowel is transformed to lowercase and every consonant to uppercase.
+Returns a string by transforming it to studlycase, so every vowel is transformed to lowercase and every consonant to uppercase like STuDLy.
 
     {{ str | studly }}
 
 ## dateStamp ##
 
-Useful if you try to apply Angular's date filter on datetime values like yyyy-MM-dd hh:mm:ss returned from a database. It takes datetime format and turns it to timestamp.
+Useful if you try to apply Angular's date filter on datetime values like yyyy-MM-dd hh:mm:ss returned from a database. It takes datetime format and turns it to timestamp and then angular's date filter can be applied without errors.
 
     {{ date | dateStamp }}  
     {{ date | dateStamp | date:"dd/MM/yyyy" }}
 
 ## dateAfter ##
 
-Useful if you want to add a time interval to a timestamp. It takes one parameter which is a string with the number and the type of interval like '1s' for 1 second, '10m' for 10 minutes, '30h' for 30 hours and '200d' for 200 days. As you understood you select s => seconds, m => minutes, h => hours and d => days. If you want to apply it to a datetime format apply previous filter too.
+Useful if you want to add a time interval to a timestamp. It takes one parameter which is a string with the value and the type of interval like '1s' for 1 second, '10m' for 10 minutes, '30h' for 30 hours and '200d' for 200 days. As you understood you select s => seconds, m => minutes, h => hours and d => days. If you want to apply it to a datetime format apply previous filter too.
 
     {{ date | dateAfter:'10d' }} 
