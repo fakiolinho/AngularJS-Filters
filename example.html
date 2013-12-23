@@ -10,35 +10,46 @@
 	<div class="container">
 		<div class="center-block text-center">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<h1><span class="label label-primary">AngularJS-Filters</span></h1><hr>
-					<h2><span class="label label-success">String Filters</span></h2><hr>
-					<h3>{{ name }} =><br>(filter: startsWith:'/') =><br> {{ name | startsWith:'/' }}</h3>
-					<h3>{{ name }} =><br>(filter: endsWith:'/') =><br> {{ name | endsWith:'/' }}</h3>
-					<h3>{{ name }} =><br>(filter: length) =><br> {{ name | length }}</h3>
-					<h3>{{ name }} =><br>(filter: wordsLength) =><br> {{ name | wordsLength }}</h3>
-					<h3>{{ name }} =><br>(filter: limit:10:'!!!') =><br> {{ name | limit:10:'!!!' }}</h3>			
-					<h3>{{ name }} =><br>(filter: limit) =><br> {{ name | limit }}</h3>				
-					<h3>{{ name }} =><br>(filter: words:1:'......') =><br> {{ name | words:1:'......' }}</h3>		
-					<h3>{{ name }} =><br>(filter: words) =><br> {{ name | words }}</h3>
-					<h3>{{ 'random' }} =><br>(filter: random) =><br> {{ 'random' | random }}</h3>
-					<h3>{{ 'random' }} =><br>(filter: random:'alpha') =><br> {{ 'random' | random:'alpha' }}</h3>	
-					<h3>{{ 'random' }} =><br>(filter: random:'numeric':5) =><br> {{ 'random' | random:'numeric':5 }}</h3>			
-					<h3>{{ 'random' }} =><br>(filter: random:'alphanumeric':10) =><br> {{ 'random' | random:'alphanumeric':10 }}</h3>	
-					<h3>{{ name }} =><br>(filter: title) =><br> {{ name | title }}</h3>
-					<h3>{{ name }} =><br>(filters: title, wordsLength) =><br> {{ name | title | words }}</h3>			
-					<h3>{{ name }} =><br>(filter: slug) =><br> {{ name | slug }}</h3>				
-					<h3>{{ name }} =><br>(filter: slug:'_') =><br> {{ name | slug:'_' }}</h3>				
-					<h3>{{ name }} =><br>(filter: snake) =><br> {{ name | snake }}</h3>				
-					<h3>{{ name }} =><br>(filter: camel) =><br> {{ name | camel }}</h3>	
-					<h3>{{ name }} =><br>(filter: studly) =><br> {{ name | studly }}</h3>
 				</div>
-				<div class="col-md-6">	
-					<h2><span class="label label-info">Date Filters</span></h2><hr>
-					<h3>{{ date }} =><br>(filter: dateStamp) =><br> {{ date | dateStamp }}</h3>
-					<h3>{{ date }} =><br>(filter:dateStamp, date:"dd/MM/yyyy") =><br> {{ date |dateStamp | date:"dd/MM/yyyy" }}</h3>	
-					<h3>{{ date }} =><br>(filter: dateStamp, dateAfter:'3d', date:"dd/MM/yyyy") =><br> {{ date | dateStamp | dateAfter:'3d' | date:'dd/MM/yyyy' }}</h3>				
-					<h3>{{ '1387833121000' }} =><br>(filter: dateAfter:'9d', date:'dd/MM/yyyy') =><br> {{ '1387833121000' | dateAfter:'9d' | date:'dd/MM/yyyy' }}</h3>				
+			</div>
+			<div class="row">
+				<div class="col-md-12">					
+					<h2>String Filters<br><small>(name: {{name}})</small></h2>
+					<pre>
+						<h3><span ng-non-bindable>{{ name | startsWith:"/" }}</span> <br>=><br> {{name | startsWith:"/"}}</h3>
+						<h3><span ng-non-bindable>{{ name | endsWith:"/" }}</span> <br>=><br> {{name | endsWith:"/"}}</h3>					
+						<h3><span ng-non-bindable>{{ name | replace:"fakiolas":"faki" }}</span> <br>=><br> {{name | replace:"fakiolas":"faki"}}</h3>
+						<h3><span ng-non-bindable>{{ name | length }}</span> <br>=><br> {{name | length}}</h3>
+						<h3><span ng-non-bindable>{{ name | wordsLength }}</span> <br>=><br> {{name | wordsLength}}</h3>
+						<h3><span ng-non-bindable>{{ name | limit:10:"!!!" }}</span> <br>=><br> {{name | limit:10:"!!!"}}</h3>			
+						<h3><span ng-non-bindable>{{ name | limit }}</span> <br>=><br> {{name | limit}}</h3>	
+						<h3><span ng-non-bindable>{{ name | words:1:"......" }}</span> <br>=><br> {{name | words:1:"......"}}</h3>		
+						<h3><span ng-non-bindable>{{ name | words }}</span> <br>=><br> {{name | words}}</h3>
+						<h3><span ng-non-bindable>{{ "random" | random }}</span> <br>=><br> {{"random" | random}}</h3>
+						<h3><span ng-non-bindable>{{ "random" | random:"alpha" }}</span> <br>=><br> {{"random" | random:"alpha"}}</h3>	
+						<h3><span ng-non-bindable>{{ "random" | random:"numeric":5 }}</span> <br>=><br> {{"random" | random:"numeric":5}}</h3>			
+						<h3><span ng-non-bindable>{{ "random" | random:"alphanumeric":10 }}</span> <br>=><br> {{"random" | random:"alphanumeric":10}}</h3>	
+						<h3><span ng-non-bindable>{{ name | title }}</span> <br>=><br> {{name | title}}</h3>
+						<h3><span ng-non-bindable>{{ name | title, wordsLength }}</span> <br>=><br> {{name | title | words}}</h3>			
+						<h3><span ng-non-bindable>{{ name | slug }}</span> <br>=><br> {{name | slug}}</h3>	
+						<h3><span ng-non-bindable>{{ name | slug:"_" }}</span> <br>=><br> {{name | slug:"_"}}</h3>				
+						<h3><span ng-non-bindable>{{ name | snake }}</span> <br>=><br> {{name | snake}}</h3>	
+						<h3><span ng-non-bindable>{{ name | camel }}</span> <br>=><br> {{name | camel}}</h3>	
+						<h3><span ng-non-bindable>{{ name | studly }}</span> <br>=><br> {{name | studly}}</h3>
+					</pre>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">	
+					<h2>Date Filters<br><small>(date: {{date}})</small></h2>
+					<pre>
+						<h3><span ng-non-bindable>{{ date | dateStamp }}</span> <br>=><br> {{date | dateStamp}}</h3>
+						<h3><span ng-non-bindable>{{ date | dateStamp | date:"dd/MM/yyyy" }}</span> <br>=><br> {{date |dateStamp | date:"dd/MM/yyyy"}}</h3>	
+						<h3><span ng-non-bindable>{{ date | dateStamp | dateAfter:"3d" | date:"dd/MM/yyyy" }}</span> <br>=><br> {{date | dateStamp | dateAfter:"3d" | date:"dd/MM/yyyy"}}</h3>				
+						<h3><span ng-non-bindable>{{ "1387833121000" | dateAfter:"9d" | date:"dd/MM/yyyy" }}</span> <br>=><br> {{"1387833121000" | dateAfter:"9d" | date:"dd/MM/yyyy"}}</h3>
+					</pre>			
 				</div>
 			</div>
 		</div>
@@ -63,6 +74,14 @@
 				return function(input, attr){
 					var input = input.trim();
 					return (input.slice(-1) == attr) ? input : input + attr;
+				}
+			})			
+			.filter('replace', function(){
+				return function(input, attr1, attr2){
+					var input = input.trim(),
+					attr1 = (attr1 == undefined) ? null : attr1,
+					attr2 = (attr2 == undefined) ? null : attr2;
+					return (attr1 !== null && attr2 !== null) ? input.replace(attr1, attr2) : input;
 				}
 			})
 			.filter('length', function(){
@@ -140,28 +159,14 @@
 				}
 			})		
 			.filter('slug', function(){
-				return function(input, attr){
-					var words = input.trim().split(" "),						
-						attr = (attr == undefined) ? '-' : attr,
-						output = "", separator;
-					for(i=0,lenWs=words.length; i<lenWs; i++){
-						word = words[i].toLowerCase();
-						separator = (i == 0) ? "" : attr;
-						output = output.concat(separator, word);
-					}
-					return output;
+				return function(input, attr){						
+					var attr = (attr == undefined) ? '-' : attr;
+					return input.trim().replace(" ", attr);
 				}
 			})
 			.filter('snake', function(){
 				return function(input){
-					var words = input.trim().split(" "),
-						output = "", separator;
-					for(i=0,lenWs=words.length; i<lenWs; i++){
-						word = words[i].toLowerCase();
-						separator = (i == 0) ? "" : "_";
-						output = output.concat(separator, word);
-					}
-					return output;
+					return input.trim().toLowerCase().replace(" ", "_");
 				}
 			})
 			.filter('camel', function(){
@@ -187,16 +192,11 @@
 			})
 			.filter('studly', function(){
 				return function(input){
-					var words = input.trim().split(" "),
-						output = "", newWord = "", regex = /^[aeiou]$/i, char;
-					for(i=0,lenWs=words.length; i<lenWs; i++){
-						word = words[i].toLowerCase();
-						for(k=0,lenW=word.length; k<lenW; k++){
-							char = regex.test(word.charAt(k)) ? word.charAt(k) : word.charAt(k).toUpperCase();
-							newWord = newWord.concat(char);
-						}
-						output = output.concat(newWord);
-						newWord = "";
+					var input = input.trim().toLowerCase().replace(" ", ""),
+						output = "", regex = /^[aeiou]$/i, char;
+					for(i=0,lenW=input.length; i<lenW; i++){
+						char = regex.test(input.charAt(i)) ? input.charAt(i) : input.charAt(i).toUpperCase();
+						output = output.concat(char);
 					}
 					return output;
 				}

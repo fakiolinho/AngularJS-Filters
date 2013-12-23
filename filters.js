@@ -12,6 +12,14 @@ myApp
 			var input = input.trim();
 			return (input.slice(-1) == attr) ? input : input + attr;
 		}
+	})			
+	.filter('replace', function(){
+		return function(input, attr1, attr2){
+			var input = input.trim(),
+			attr1 = (attr1 == undefined) ? null : attr1,
+			attr2 = (attr2 == undefined) ? null : attr2;
+			return (attr1 !== null && attr2 !== null) ? input.replace(attr1, attr2) : input;
+		}
 	})
 	.filter('length', function(){
 		return function(input){
@@ -88,28 +96,14 @@ myApp
 		}
 	})		
 	.filter('slug', function(){
-		return function(input, attr){
-			var words = input.trim().split(" "),						
-				attr = (attr == undefined) ? '-' : attr,
-				output = "", separator;
-			for(i=0,lenWs=words.length; i<lenWs; i++){
-				word = words[i].toLowerCase();
-				separator = (i == 0) ? "" : attr;
-				output = output.concat(separator, word);
-			}
-			return output;
+		return function(input, attr){						
+			var attr = (attr == undefined) ? '-' : attr;
+			return input.trim().replace(" ", attr);
 		}
 	})
 	.filter('snake', function(){
 		return function(input){
-			var words = input.trim().split(" "),
-				output = "", separator;
-			for(i=0,lenWs=words.length; i<lenWs; i++){
-				word = words[i].toLowerCase();
-				separator = (i == 0) ? "" : "_";
-				output = output.concat(separator, word);
-			}
-			return output;
+			return input.trim().toLowerCase().replace(" ", "_");
 		}
 	})
 	.filter('camel', function(){
@@ -135,16 +129,11 @@ myApp
 	})
 	.filter('studly', function(){
 		return function(input){
-			var words = input.trim().split(" "),
-				output = "", newWord = "", regex = /^[aeiou]$/i, char;
-			for(i=0,lenWs=words.length; i<lenWs; i++){
-				word = words[i].toLowerCase();
-				for(k=0,lenW=word.length; k<lenW; k++){
-					char = regex.test(word.charAt(k)) ? word.charAt(k) : word.charAt(k).toUpperCase();
-					newWord = newWord.concat(char);
-				}
-				output = output.concat(newWord);
-				newWord = "";
+			var input = input.trim().toLowerCase().replace(" ", ""),
+				output = "", regex = /^[aeiou]$/i, char;
+			for(i=0,lenW=input.length; i<lenW; i++){
+				char = regex.test(input.charAt(i)) ? input.charAt(i) : input.charAt(i).toUpperCase();
+				output = output.concat(char);
 			}
 			return output;
 		}

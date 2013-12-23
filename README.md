@@ -16,6 +16,12 @@ Checks if a string ends with the given parameter. If not concatenates that param
 
     {{ str | endsWith:'/' }}
 
+### replace ###
+
+Takes two parameters and searches inside string to find first parameter and then replaces it with the second one. If both of parameters are not declared the string itself is returned.
+
+    {{ str | replace:'old':'new' }}
+
 ### length ###
 
 Returns the length of the given string.
